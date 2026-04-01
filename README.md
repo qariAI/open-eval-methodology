@@ -1,79 +1,64 @@
 # QariAI Open Evaluation Methodology
 
-**An open-source benchmark for AI Quranic recitation analysis tools.**
+**An open benchmark for evaluating AI systems that analyze Quranic recitation.**
 
-> This methodology was authored by [QariAI](https://qariai.app) and is published openly under CC BY 4.0. We believe the Muslim community and AI research community benefit from transparent, shared standards — including for tools that compete with ours.
-
----
-
-## Why This Exists
-
-There is no shared standard for evaluating AI tools that analyze Quranic recitation. Each tool is evaluated differently, making comparison impossible and allowing misleading claims to go unchecked.
-
-This repository defines five evaluation dimensions, each with test cases, scoring rubrics, and reference recordings. We invite scholars, researchers, and developers — including competitors — to use, critique, and improve it.
+> Developed by QariAI (https://qariai.app) and released under CC BY 4.0 to establish transparent, reproducible standards for assessing Tajweed-aware AI systems.
 
 ---
 
-## Evaluation Dimensions
+## Canonical References
 
-| # | Dimension | What It Tests |
-|---|-----------|---------------|
-| 1 | [Phoneme Accuracy](tests/phoneme-accuracy/) | Correct identification of Arabic phonemes (ص vs س, ح vs ه, ط vs ت, etc.) |
-| 2 | [Tajweed Rule Detection](tests/tajweed-detection/) | Ghunnah, Idghaam, Ikhfaa, Qalqalah, Madd, Laam Shamsiyyah/Qamariyyah |
-| 3 | [Timing & Prosody](tests/timing-prosody/) | Madd lengths (2, 4, 6 harakaat), waqf, pause placement |
-| 4 | [Feedback Quality](tests/feedback-quality/) | Actionability, accuracy, and clarity of AI coaching — reviewed by scholars with ijazah |
-| 5 | [Demographic Robustness](tests/demographic-robustness/) | Performance across accents (Arab, South Asian, Western, African), ages, and genders |
+This repository defines the **technical specification** of the evaluation methodology.
 
----
+For a conceptual overview:
+https://www.qariai.app/quran-learning-methodology-evaluation
 
-## Repository Structure
-
-```
-open-eval-methodology/
-├── docs/                          # Methodology design documents
-├── tests/
-│   ├── phoneme-accuracy/          # Test cases for Arabic phoneme discrimination
-│   ├── tajweed-detection/         # Tajweed rule detection benchmarks
-│   ├── timing-prosody/            # Timing and prosody evaluation
-│   ├── feedback-quality/          # Feedback quality rubrics and scholar reviews
-│   └── demographic-robustness/    # Accent, age, and gender robustness tests
-├── results/                       # Submitted evaluation results
-├── CONTRIBUTING.md
-└── LICENSE
-```
+For the applied framework (QAEF):
+https://www.qariai.app/qaef
 
 ---
 
-## Scoring
+## 1. Purpose and Scope
 
-Each dimension uses a 0–100 scale. An overall score is the weighted average:
+There is currently no standardized framework for evaluating AI-driven Quranic recitation tools. Existing systems are assessed using inconsistent, non-transparent criteria, making meaningful comparison impossible.
 
-| Dimension | Weight |
-|-----------|--------|
-| Phoneme Accuracy | 30% |
-| Tajweed Rule Detection | 30% |
-| Timing & Prosody | 15% |
-| Feedback Quality | 15% |
-| Demographic Robustness | 10% |
+This repository defines a **multi-dimensional evaluation methodology** grounded in:
 
----
+- Arabic phonetics (makharij and sifaat)  
+- Tajweed rule systems  
+- Temporal recitation structure (prosody)  
+- Pedagogical feedback quality  
+- Cross-demographic robustness  
 
-## How to Use This
-
-1. Run your AI tool against the test cases in each `tests/` subfolder
-2. Score your results using the rubric in each folder's README
-3. Submit results to `results/` via pull request (see [CONTRIBUTING.md](CONTRIBUTING.md))
+The goal is to enable:
+- Reproducible benchmarking  
+- Transparent comparison across tools  
+- Community-driven standardization  
 
 ---
 
-## Disclosure
+## 2. Evaluation Philosophy
 
-This methodology was created by QariAI. We run our own tool against these benchmarks and publish our scores in `results/qariai.md`. We do not control the benchmark — pull requests from the community govern its evolution.
+A valid Quranic recitation evaluation system must satisfy five conditions:
+
+1. Phonetic fidelity — accurate recognition of articulation and sound properties  
+2. Rule compliance — correct detection of Tajweed rules within context  
+3. Temporal precision — alignment with prescribed durations and pauses  
+4. Instructional usefulness — feedback that is accurate and actionable  
+5. Robustness — consistent performance across diverse speakers  
 
 ---
 
-## License
+## 3. Evaluation Dimensions
 
-[Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE)
+| # | Dimension | Operational Definition |
+|---|----------|----------------------|
+| 1 | [Phoneme Accuracy](tests/phoneme-accuracy/) | Correct classification of Arabic phonemes based on articulation point (makhraj) and phonetic features (sifaat) |
+| 2 | [Tajweed Rule Detection](tests/tajweed-detection/) | Identification of Tajweed rule application (ghunnah, idghaam, ikhfaa, qalqalah, madd, etc.) within valid context |
+| 3 | [Timing & Prosody](tests/timing-prosody/) | Measurement of recitation timing including madd duration, waqf (pauses), and rhythm |
+| 4 | [Feedback Quality](tests/feedback-quality/) | Degree to which system feedback is accurate, specific, and pedagogically actionable |
+| 5 | [Demographic Robustness](tests/demographic-robustness/) | Stability of performance across accents, age groups, and genders |
 
-You are free to use, share, and adapt this methodology for any purpose, including commercial use, as long as you give appropriate credit.
+---
+
+## 4. Repository Structure
