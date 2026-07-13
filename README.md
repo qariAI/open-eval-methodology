@@ -10,11 +10,8 @@
 
 This repository defines the **technical specification** of the evaluation methodology.
 
-For a conceptual overview:
-https://www.qariai.app/quran-learning-methodology-evaluation
-
-For the applied framework (QAEF):
-https://www.qariai.app/qaef
+For a conceptual overview: https://qariai.app/open-methodology
+For the applied framework (QAEF): https://qariai.app/qaef
 
 ---
 
