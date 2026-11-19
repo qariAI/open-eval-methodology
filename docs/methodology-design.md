@@ -6,7 +6,7 @@
 2. **Scholar grounding** — evaluation criteria are derived from established Tajweed science, not AI conventions
 3. **Community governance** — the benchmark evolves through pull requests, not unilateral decisions by QariAI
 4. **Equity** — performance must be measured across the full diversity of the Muslim community
-5. **Honesty** — QariAI publishes its own scores, including unfavorable results
+5. **Honesty** — QariAI publishes its own scores, including unfavorable results. As of v1.0.0 no scores are published yet because the test suite is incomplete.
 
 ## Design Decisions
 
@@ -31,10 +31,10 @@ This methodology uses semantic versioning:
 - **Minor version:** Addition of new test cases
 - **Patch:** Corrections to existing test cases
 
-Current version: **1.0.0**
+Current version: **1.0.0** (draft: specification only; see CHANGELOG.md)
 
 ## Limitations
 
 - This methodology covers Hafs 'an 'Asim only (the most widely used riwayah). Other riwayaat are out of scope for v1.
-- Audio quality of test recordings affects results — all reference recordings use the same equipment and conditions.
+- Audio quality of test recordings affects results — reference recordings come from varied sources (e.g. archival Murattal) and recording conditions are documented per file in the case metadata.
 - This is not a comprehensive Quran recitation curriculum — it tests AI tools, not human reciters.

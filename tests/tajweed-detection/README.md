@@ -9,7 +9,7 @@ This dimension tests whether an AI tool correctly identifies violations of Tajwe
 ## Rules Under Test
 
 ### 1. Ghunnah (غنة)
-Nasalization applied to ن and م when mushaddad (doubled), or when followed by specific letters.
+Nasalization of ن and م when mushaddad (doubled); also present in idgham with ghunnah, ikhfaa, iqlab and ikhfaa shafawi.
 - **Duration:** 2 harakaat
 - **Common error:** Shortening or omitting the nasal resonance
 
@@ -17,6 +17,7 @@ Nasalization applied to ن and م when mushaddad (doubled), or when followed by 
 Merging of noon sakinah or tanween into the following letter.
 - **With ghunnah:** ي ن م و
 - **Without ghunnah:** ل ر
+- **Applies only across two words.** Exceptions: دنيا, قنوان, صنوان, بنيان (read with izhar).
 - **Common error:** Pronouncing the noon clearly instead of merging
 
 ### 3. Ikhfaa (إخفاء)
@@ -25,7 +26,7 @@ Partial concealment of noon sakinah or tanween before 15 letters.
 
 ### 4. Qalqalah (قلقلة)
 Echo/bounce applied to ق ط ب ج د when sukoon or at end of word.
-- **Levels:** Minor (mid-word), Major (end of word/ayah)
+- **Levels:** Sughra (mid-word), Wusta (end of word when continuing), Kubra (end of word when stopping)
 - **Common error:** Missing the echo entirely or applying it incorrectly
 
 ### 5. Madd (مد)
@@ -49,8 +50,8 @@ Solar letters assimilate the laam of ال; lunar letters do not.
   "id": "tajweed-001",
   "rule": "ghunnah",
   "surah": 2,
-  "ayah": 7,
-  "word": "خَتَمَ",
+  "ayah": 6,
+  "word": "إِنَّ",
   "context": "Full ayah text",
   "correct_recording": "recordings/tajweed-001-correct.mp3",
   "error_recording": "recordings/tajweed-001-error.mp3",
@@ -66,16 +67,10 @@ Solar letters assimilate the laam of ال; lunar letters do not.
 
 | Score | Criteria |
 |-------|----------|
-| 100 | Correctly identifies rule violation, names the rule, gives actionable feedback |
-| 75 | Identifies violation but misnames rule or gives vague feedback |
-| 50 | Identifies something is wrong but cannot specify the rule |
-| 25 | Inconsistent detection (catches <50% of violations) |
-| 0 | Does not detect this rule category |
-
-**Bonus:** +10 points if the tool correctly explains the rule in learner-friendly language.
+Per rule, compute **recall**, **false-positive rate** and **rule-naming accuracy** (flagged violations labelled with the correct rule). Rule score = 100 × (0.5 × F1 + 0.5 × naming accuracy), capped at 100, with a 95% bootstrap CI. Quality of explanation is scored only in Dimension 4, not here.
 
 ---
 
 ## Scholar Validation
 
-All test cases in this dimension have been reviewed against the rules of Hafs 'an 'Asim by the riwayah of Shatibiyyah.
+Test cases follow riwayat Hafs 'an 'Asim, tariq al-Shatibiyyah. Scholar review is **pending**; named reviewers and dates will be listed in `docs/reviewers.md` once complete. No case is considered validated before then.

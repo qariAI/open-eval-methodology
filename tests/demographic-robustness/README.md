@@ -50,10 +50,12 @@ This dimension holds tools accountable for equitable performance.
 
 For each demographic group, run the full phoneme + tajweed test suite and record the score. The demographic robustness score measures **consistency** across groups, not absolute performance.
 
-**Score = 100 − (max_group_score − min_group_score)**
+**Score = min_group_score × (1 − (max_group_score − min_group_score) / 100)**
 
-A tool that scores 80 for all groups gets 100 (perfectly consistent).
-A tool that scores 90 for Arab males and 50 for South Asian women gets 60 (40-point gap).
+This rewards both level and consistency; a tool that scores 0 everywhere gets 0.
+A tool scoring 80 for all groups gets 80. A tool scoring 90 for one group and 50 for another gets 50 × 0.6 = 30.
+
+Each reported group needs at least 20 recordings from at least 5 distinct reciters; smaller groups are listed but excluded from min/max. Groups are scored on each axis separately (accent, age, gender).
 
 ---
 
@@ -68,9 +70,7 @@ A tool that scores 90 for Arab males and 50 for South Asian women gets 60 (40-po
   "gender": "female",
   "recording": "recordings/demo-001.mp3",
   "ground_truth_errors": ["ikhfaa_missed", "madd_shortened"],
-  "tool_detected": ["madd_shortened"],
-  "detection_rate": 0.5,
-  "false_positive_count": 0
+  "consent_ref": "consent-2026-001"
 }
 ```
 
@@ -80,7 +80,7 @@ A tool that scores 90 for Arab males and 50 for South Asian women gets 60 (40-po
 
 - All recordings are collected with explicit informed consent
 - Reciter identities are anonymized
-- No recordings of children are shared publicly — only aggregated scores
+- No recordings of children are shared publicly. Tools are evaluated on them through a maintainer-run private evaluation (see `docs/evaluation-protocol.md`), and only aggregated scores are published
 - Results are reported per demographic group, not per individual
 
 ---

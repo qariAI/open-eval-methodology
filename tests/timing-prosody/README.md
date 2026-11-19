@@ -40,10 +40,10 @@ Overall rhythm should be consistent — neither rushed nor artificially slowed. 
   "id": "timing-001",
   "type": "madd_duration",
   "madd_type": "muttasil",
-  "surah": 1,
-  "ayah": 4,
-  "word": "مَالِكِ",
-  "expected_duration_harakaat": 5,
+  "surah": 2,
+  "ayah": 22,
+  "word": "وَٱلسَّمَآءَ",
+  "expected_duration_harakaat": [4, 5],
   "correct_recording": "recordings/timing-001-correct.mp3",
   "error_recording": "recordings/timing-001-error-short.mp3",
   "error_description": "Madd shortened to 2 harakaat",
@@ -62,6 +62,12 @@ Overall rhythm should be consistent — neither rushed nor artificially slowed. 
 | 50 | Detects major errors (50%+ too short/long) but misses subtle ones |
 | 25 | Only detects gross timing violations |
 | 0 | No timing evaluation capability |
+
+---
+
+## Scope Note
+
+Ayah numbering follows the Kufan count used with Hafs. Munfasil at 2 harakaat (qasr) is valid in some routes; this benchmark follows the Shatibiyyah route (4–5), so 2 is scored as an error. Madd 'arid lil-sukun, leen, badal and silah are not yet covered.
 
 ---
 
