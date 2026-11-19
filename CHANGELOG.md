@@ -5,6 +5,7 @@
 - Scoring: replaced coarse bins with recall / false-positive rate / F1 with confidence intervals; removed tajweed +10 bonus and feedback double-counting.
 - Demographic score now cannot reward uniformly poor tools; minimum group sizes added.
 - Added GOVERNANCE.md, evaluation protocol, results template, reviewers list.
+- Added draft case JSON schema (`schema/`) and a reference scorer with unit tests (`scorer/`, stdlib only).
 - Clarified that no scores or scholar validation exist yet.
 
 ## 1.0.0

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evaluation case (phoneme or tajweed), draft v0",
+  "type": "object",
+  "required": ["id", "dimension", "group", "surah", "ayah", "word", "has_error", "recording", "provenance"],
+  "properties": {
+    "id": {"type": "string"},
+    "dimension": {"enum": ["phoneme", "tajweed"]},
+    "group": {"type": "string", "description": "Phoneme pair or tajweed rule"},
+    "surah": {"type": "integer", "minimum": 1, "maximum": 114},
+    "ayah": {"type": "integer", "minimum": 1},
+    "word": {"type": "string"},
+    "has_error": {"type": "boolean"},
+    "rule": {"type": "string", "description": "Required when has_error is true for tajweed"},
+    "error_type": {"type": "string"},
+    "recording": {"type": "string"},
+    "provenance": {
+      "type": "object",
+      "required": ["source", "license", "recorded_error"],
+      "properties": {
+        "source": {"type": "string"},
+        "license": {"type": "string"},
+        "recorded_error": {"enum": ["real_learner", "staged_by_reciter", "none"]},
+        "equipment": {"type": "string"}
+      }
+    },
+    "reciter_id": {"type": "string"},
+    "consent_ref": {"type": "string"},
+    "demo": {
+      "type": "object",
+      "properties": {
+        "accent": {"type": "string"},
+        "age": {"enum": ["child", "teen", "adult", "elderly"]},
+        "gender": {"enum": ["male", "female"]}
+      }
+    },
+    "scholar_review": {
+      "type": "object",
+      "properties": {"reviewer": {"type": "string"}, "date": {"type": "string"}, "approved": {"type": "boolean"}}
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"dimension": {"const": "tajweed"}, "has_error": {"const": true}}},
+     "then": {"required": ["rule"]}}
+  ]
+}
