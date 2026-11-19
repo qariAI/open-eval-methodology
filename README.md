@@ -58,4 +58,15 @@ A valid Quranic recitation evaluation system must satisfy five conditions:
 
 ---
 
-## 4. Repository Structure
+## 4. Scoring
+
+Overall = 0.30 Phoneme + 0.30 Tajweed + 0.15 Timing + 0.15 Feedback + 0.10 Demographic (each 0-100). Per-dimension formulas are in each `tests/` README. Running a tool: see [docs/evaluation-protocol.md](docs/evaluation-protocol.md). Governance: [GOVERNANCE.md](GOVERNANCE.md).
+
+## 5. Repository Structure
+
+- `tests/<dimension>/`: specification and (when published) cases for each dimension
+- `docs/`: design rationale, evaluation protocol, reviewers
+- `results/`: submitted results; start from `results/TEMPLATE.md`
+- `GOVERNANCE.md`, `CONTRIBUTING.md`, `CHANGELOG.md`
+
+**Status:** specification only. Test recordings, scoring code and scores are not yet published.

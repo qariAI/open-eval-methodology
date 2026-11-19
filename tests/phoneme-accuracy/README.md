@@ -16,14 +16,16 @@ Arabic contains phonemes absent in most other languages. Confusing ص and س, or
 
 | Pair | Description | Example Word |
 |------|-------------|--------------|
-| ص / س | Emphatic vs. plain sibilant | صِرَاطَ vs سِرَاط |
-| ح / ه | Pharyngeal vs. glottal fricative | حَمْد vs هَمْد |
-| ط / ت | Emphatic vs. plain plosive | طَرِيق vs تَرِيق |
-| ذ / ز | Interdental vs. alveolar fricative | ذَلِك vs زَلِك |
-| ظ / ض | Emphatic interdental vs. emphatic lateral | ظَلَم vs ضَلَم |
-| ع / أ | Pharyngeal vs. glottal stop | عَالَم vs أَالَم |
-| غ / خ | Voiced vs. voiceless uvular fricative | غَيب vs خَيب |
+| ص / س | Emphatic vs. plain sibilant | صَارَ vs سَارَ |
+| ح / ه | Pharyngeal vs. glottal fricative | حَلَّ vs هَلَّ |
+| ط / ت | Emphatic vs. plain plosive | طِين vs تِين |
+| ذ / ز | Interdental vs. alveolar fricative | ذَلَّ vs زَلَّ |
+| ظ / ض | Emphatic interdental vs. emphatic lateral | ظَلَّ vs ضَلَّ |
+| ع / أ | Pharyngeal vs. glottal stop | عَلِمَ vs أَلِمَ |
+| غ / خ | Voiced vs. voiceless uvular fricative | غَابَ vs خَابَ |
 | ق / ك | Uvular vs. velar plosive | قُل vs كُل |
+
+Example words are real Arabic minimal pairs; scholar review of the final list is pending.
 
 ---
 
@@ -35,7 +37,7 @@ Each test case is a JSON file with the following structure:
 {
   "id": "phoneme-001",
   "surah": 1,
-  "ayah": 2,
+  "ayah": 6,
   "target_phoneme": "ص",
   "confusable_phoneme": "س",
   "word": "الصِّرَاطَ",
@@ -52,11 +54,7 @@ Each test case is a JSON file with the following structure:
 
 | Score | Criteria |
 |-------|----------|
-| 100 | Detects all errors in this pair across all test cases |
-| 75 | Detects >75% of errors, no false positives |
-| 50 | Detects >50% of errors OR has significant false positives |
-| 25 | Detects <50% of errors |
-| 0 | Does not detect this phoneme pair at all |
+Per pair, compute **recall** (errors detected / error recordings) and **false-positive rate** (flags on correct recordings / correct recordings). Pair score = 100 × F1, with a 95% bootstrap confidence interval reported. A tool that detects nothing scores 0.
 
 **Overall phoneme accuracy score** = average across all pairs, weighted by frequency in the Quran.
 

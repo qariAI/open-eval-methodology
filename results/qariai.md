@@ -20,7 +20,7 @@
 | Demographic Robustness | — | 10% | — |
 | **Overall** | — | 100% | — |
 
-*Scores pending completion of test suite. Will be updated as test cases are finalized.*
+*No scores yet: the test suite is not published. QariAI will publish its scores, including unfavorable ones, once the suite is released. Results here are never to be read as a pass.*
 
 ---
 
